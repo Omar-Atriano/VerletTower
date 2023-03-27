@@ -43,6 +43,18 @@ namespace VerletTower
             brush = new SolidBrush(c);
         }
 
+        public VerletPoint(float x, float y, float f)
+        {
+            friction = f;
+            pos = new Vec2(x, y);
+            old = new Vec2(x, y);
+            gravity = new Vec2(0, 1);
+            vel = new Vec2(0, 1);
+            diameter = radius + radius;
+            Color c = Color.Orange;
+            brush = new SolidBrush(c);
+        }
+
         public VerletPoint(float x, float y, bool pin)
         {
             pinned = pin;

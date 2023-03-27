@@ -24,13 +24,18 @@ namespace VerletTower
         List<Box> boxesO;
         List<Box> boxes;
         int contCaja = 0;
+        bool air;
 
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            contCaja++;
-            Box box2 = new Box(30, 30, point4/*,boxes*/);
-            boxes.Add(box2);
+            if (!air)
+            {
+                contCaja++;
+                Box box2 = new Box(30, 30, point4/*,boxes*/);
+                boxes.Add(box2);
+                air = true;
+            }
         }
         public Form1()
         {
@@ -40,13 +45,13 @@ namespace VerletTower
 
         public void Init()
         {
-            pos1 = pictureBox1.Width / 2 -25;
+            pos1 = pictureBox1.Width / 2;
             pos2 = pictureBox1.Width / 2 +25;
 
             point = new VerletPoint(pos1, 0, pin);
-            point2 = new VerletPoint(pictureBox1.Width / 2 - 25, 20);
-            point3 = new VerletPoint(pictureBox1.Width / 2 - 50, 25);
-            point4 = new VerletPoint(pictureBox1.Width / 2 - 70, 30);
+            point2 = new VerletPoint(pictureBox1.Width / 2 - 25, 20, 1f);
+            point3 = new VerletPoint(pictureBox1.Width / 2 - 50, 25, 1f);
+            point4 = new VerletPoint(pictureBox1.Width / 2 - 70, 30, 1f);
             point5 = new VerletPoint(pictureBox1.Width / 2, pictureBox1.Height - 35);
             stick = new VerletStick(point, point2);
             stick2 = new VerletStick(point2, point3);
@@ -83,9 +88,35 @@ namespace VerletTower
 
             label2.Text = contCaja.ToString();
 
+            if (contCaja > 0)
+            {
+                if (boxes[boxes.Count() - 1].p1.pos.Y + 40 > boxes[boxes.Count() - 2].p1.pos.Y)
+                    air = false;
+            }
 
+            if (timeM < 20)
+            {
+                
+                if (timeM < 15)
+                {
+                    point4.old.X -= 1f;
+                    point4.old.Y -= 1;
+                }
+            }
+            else if (timeM > 20 && timeM < 40)
+            {
+                
+                if (timeM < 35)
+                {
+                    point4.old.X += 1f;
+                    point4.old.Y -= 1;
+                }
+
+            }
+            else if (timeM == 40)
+                timeM = 0;
             timeM++;
-            if(timeM%15 == 1)
+            /*if(timeM%15 == 1)
             {
                 timeSa ++;
 
@@ -93,7 +124,7 @@ namespace VerletTower
                     point.pos.X = pos2;
                 else if(point.pos.X == pos2)
                     point.pos.X = pos1;
-            }
+            }*/
             if (contCaja == 15)
             {
                 timer1.Enabled = false;
@@ -201,3 +232,17 @@ namespace VerletTower
         }
     }
 }
+/*if(point4.old.X>point4.pos.X && r)
+{
+    point4.old.X += 30;
+    point4.old.Y -= 15;
+    r = false;
+    l = true;
+}
+            else if (point4.old.X < point4.pos.X && l)
+{
+    point4.old.X -= 30;
+    point4.old.Y -= 15;
+    r = true;
+    l = false;
+}*/

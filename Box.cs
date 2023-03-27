@@ -14,7 +14,7 @@ namespace VerletTower
         PointF pi1, pi2, pi3, pi4;
         static Random rand = new Random();
         //private List<Box> boxes = new List<Box>();
-        Image particleImage = Image.FromFile("C:\\Users\\Omar\\Documents\\Udlap\\Sexto semestre\\Graficación y  videojuegos\\assets\\block.png");
+        //Image particleImage = Image.FromFile("C:\\Users\\Omar\\Documents\\Udlap\\Sexto semestre\\Graficación y  videojuegos\\assets\\block.png");
         public Box(int height, int width, VerletPoint punta/*, List<Box> boxes*/)
         {
             //this.boxes = boxes;
