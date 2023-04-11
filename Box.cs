@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,8 +14,11 @@ namespace VerletTower
         public VerletStick s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20, s21, s22, s23, s24, s25, s26;
         PointF pi1, pi2, pi3, pi4;
         static Random rand = new Random();
-        //private List<Box> boxes = new List<Box>();
-        //Image particleImage = Image.FromFile("C:\\Users\\Omar\\Documents\\Udlap\\Sexto semestre\\Graficación y  videojuegos\\assets\\block.png");
+        private List<PointF> boxes = new List<PointF>();
+        Image particleImage = Image.FromFile("C:\\Users\\Omar\\Documents\\Udlap\\Sexto semestre\\Graficación y  videojuegos\\assets\\block.png");
+
+        Point[] points = new Point[4];
+
         public Box(int height, int width, VerletPoint punta/*, List<Box> boxes*/)
         {
             //this.boxes = boxes;
@@ -33,6 +37,8 @@ namespace VerletTower
             p9 = new VerletPoint(punta.pos.X, punta.pos.Y + 30);
             p10 = new VerletPoint(punta.pos.X + width / 4, punta.pos.Y + 30);
 
+
+            //boxes.Add(pp1); boxes.Add(p2);boxes.Add(p3); boxes.Add(p4);boxes.Add(p5); boxes.Add(p6); boxes.Add(p7); boxes.Add(p8); boxes.Add(p9); boxes.Add(p10);
 
 
             s1 = new VerletStick(p1, p2);
@@ -132,6 +138,17 @@ namespace VerletTower
             pi3.X = p3.pos.X; pi3.Y = p3.pos.Y;
             pi4.X = p4.pos.X; pi4.Y = p4.pos.Y;
             //g.DrawImage(particleImage, pi1.X - 2, pi1.Y - 2, 40, 40);
+
+            points[0] = new Point((int)pi1.X, (int)pi1.Y);
+            points[1] = new Point((int)pi2.X, (int)pi2.Y);
+            points[2] = new Point((int)pi3.X, (int)pi3.Y);
+            points[3] = new Point((int)pi4.X, (int)pi4.Y);
+
+            Brush brush = new SolidBrush(Color.Blue);
+            Pen pen = new Pen(Color.Blue, 2);
+            g.FillPolygon(brush, points);
+            g.DrawPolygon(pen, points);
+
         }
     }
 }
