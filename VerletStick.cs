@@ -12,6 +12,7 @@ namespace VerletTower
         public VerletPoint startPoint, endPoint;
         public float stiffness, length, damp, tot, m1, m2, dis, diff;
         public Vec2 offset, dxy;
+        public bool draw=false;
 
 
         public VerletStick(VerletPoint s, VerletPoint e)
@@ -40,7 +41,8 @@ namespace VerletTower
         public void Render(Graphics g)
         {
             Update();
-            g.DrawLine(Pens.Green, startPoint.pos.X, startPoint.pos.Y, endPoint.pos.X, endPoint.pos.Y);
+            if(draw)
+                g.DrawLine(Pens.Green, startPoint.pos.X, startPoint.pos.Y, endPoint.pos.X, endPoint.pos.Y);
         }
 
     }
