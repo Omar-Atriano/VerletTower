@@ -146,12 +146,11 @@ namespace VerletTower
 
             Point[] puerta = new Point[]
             {
-                new Point((int)(pi2.X-10), (int)pi3.Y),
-                new Point((int)(pi2.X-15), (int)pi3.Y),
-                new Point((int)(pi2.X - 15), (int)pi3.Y-10),
-                new Point((int)(pi2.X - 10), (int)pi3.Y-10)
+                new Point((int)(p5.pos.X+2), (int)p4.pos.Y),
+                new Point((int)(p7.pos.X-2), (int)p3.pos.Y),
+                new Point((int)(p7.pos.X-2), (int)pi3.Y-10),
+                new Point((int)(p5.pos.X+2), (int)pi3.Y-10)
             };
-
 
 
             Brush brush = new SolidBrush(Color.Yellow);
