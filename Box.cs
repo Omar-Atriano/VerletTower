@@ -144,10 +144,23 @@ namespace VerletTower
             points[2] = new Point((int)pi3.X, (int)pi3.Y);
             points[3] = new Point((int)pi4.X, (int)pi4.Y);
 
+            Point[] puerta = new Point[]
+            {
+                new Point((int)(pi2.X-10), (int)pi3.Y),
+                new Point((int)(pi2.X-15), (int)pi3.Y),
+                new Point((int)(pi2.X - 15), (int)pi3.Y-10),
+                new Point((int)(pi2.X - 10), (int)pi3.Y-10)
+            };
+
+
+
             Brush brush = new SolidBrush(Color.Yellow);
+            Brush brushP = new SolidBrush(Color.Brown);
             Pen pen = new Pen(Color.Black, 2);
             g.FillPolygon(brush, points);
             g.DrawPolygon(pen, points);
+            g.FillPolygon(brushP, puerta);
+            g.DrawPolygon(pen, puerta);
 
         }
     }
