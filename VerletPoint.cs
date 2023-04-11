@@ -18,6 +18,7 @@ namespace VerletTower
         public float mass = 1;
         public float diameter;
         public bool pinned = false;
+        public bool draw = false;
 
 
         public VerletPoint(float x, float y, float vx, float vy)
@@ -105,7 +106,8 @@ namespace VerletTower
                 Update(width, height);
                 Constraints(width, height);
             }
-            g.FillEllipse(Brushes.Orange, pos.X - radius, pos.Y - radius, diameter, diameter);
+            if(draw)
+                g.FillEllipse(Brushes.Orange, pos.X - radius, pos.Y - radius, diameter, diameter);
         }
 
 

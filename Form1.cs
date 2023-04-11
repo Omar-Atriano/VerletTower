@@ -56,6 +56,14 @@ namespace VerletTower
             stick = new VerletStick(point, point2);
             stick2 = new VerletStick(point2, point3);
             stick3 = new VerletStick(point3, point4);
+            point.draw = true;
+            point2.draw = true;
+            point3.draw = true;
+            point4.draw = true;
+            point5.draw = true;
+            stick.draw = true;
+            stick2.draw = true;
+            stick3.draw = true;
             timer1.Enabled = true;
 
 
