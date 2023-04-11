@@ -144,8 +144,8 @@ namespace VerletTower
             points[2] = new Point((int)pi3.X, (int)pi3.Y);
             points[3] = new Point((int)pi4.X, (int)pi4.Y);
 
-            Brush brush = new SolidBrush(Color.Blue);
-            Pen pen = new Pen(Color.Blue, 2);
+            Brush brush = new SolidBrush(Color.Yellow);
+            Pen pen = new Pen(Color.Black, 2);
             g.FillPolygon(brush, points);
             g.DrawPolygon(pen, points);
 
